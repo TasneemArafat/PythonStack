@@ -1,0 +1,50 @@
+pip list:
+returns a list of all packages in an environment
+and the installed version for each package
+Output:
+Package    Version
+---------- -------
+pip        21.1.1
+setuptools 28.8.0
+wheel      0.36.2
+------------------------------------------------------------------------------
+pip3 list:
+same output as pip list
+but pip3 works only for python 3 but pip list works fro all versions (2 and 3)
+
+Output:
+Package    Version
+---------- -------
+pip        21.1.1
+setuptools 28.8.0
+wheel      0.36.2
+------------------------------------------------------------------------------
+pip list -o OR pip list --outdated:
+returns a list of packages
+with the currently installed versions and latest available
+
+pip list -u OR pip list --uptodate
+all versions
+------------------------------------------------------------------------------
+deactivate
+for deactivating a virtual environment 
+------------------------------------------------------------------------------
+call myEnvironments/py3Env/Scripts/activate
+activate Or Reactivate an environment (py3Env)
+------------------------------------------------------------------------------
+pip install Django==2.2.4
+to install packages
+------------------------------------------------------------------------------
+pip freeze
+when we want to use the same files in another environment
+so we freeze the packages in the current version
+
+pip freeze > requirements.txt
+ls 
+------------------------------------------------------------------------------
+pip uninstall Django
+remove the installed package
+------------------------------------------------------------------------------
+pip show Django
+shows details about a currently installed package
+name, version, summary, dependent packages ...
