@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/result" method='post'>
+        {% csrf_token %}
+        <label for="name">Your Name: </label>
+        <input type="text" name="name"><br>
+        <label>Gender: </label><br>
+        <input type="radio" name="gender" value="male">
+        <label for="male">Male</label><br>
+        <input type="radio" name="gender" value="female">
+        <label for="female">Female</label><br>
+        <label for="location">Dojo Location: </label>
+        <select name="location">
+            <option value="palestine">Palestine</option>
+            <option value="USA">USA</option>
+            <option value="japan">Japan</option>
+        </select><br>
+        <label>languages covered: </label><br>
+        <input type="checkbox" name="courses" id="html" value="HTML">
+        <label for="html">HTML</label><br>
+        <input type="checkbox" name="courses" id="css" value="CSS">
+        <label for="css">CSS</label><br>
+        <input type="checkbox" name="courses" id="javascript" value="JS">
+        <label for="javascript">JavaScript</label><br>
+        <input type="checkbox" name="courses" id="python" value="Python">
+        <label for="python">Python</label><br>
+        <input type="checkbox" name="courses" id="java" value="Java">
+        <label for="java">Java</label><br>
+        <input type="checkbox" name="courses" id="mern" value="MERN">
+        <label for="mern">MERN</label><br>
+        <label for="language">Favourite Language: </label>
+        <select name="language">
+            <option value="python">Python</option>
+            <option value="java">Java</option>
+            <option value="mern">MERN</option>
+        </select><br>
+        <label for="comment">Comments (Optional): </label><br>
+        <textarea name="comment"></textarea><br>
+        <input type="submit" name="submit">
+    </form>
+</body>
+</html>
