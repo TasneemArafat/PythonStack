@@ -1,0 +1,39 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+
+.container {
+    margin:0px auto;
+    text-align: center;
+}
+
+h3 {
+    height: 100px;
+    width:100px;
+    border: 2px solid black;
+    margin:10px auto;
+
+}
+
+.red{
+    background-color: red;
+}
+
+.green{
+    background-color: green;
+}
+
+.blank{
+    background-color: none;
+    border:none;
+    height:0px;
+    width:0px;
+}
+
+.blue {
+    border: 2px solid black;
+    width:fit-content;
+    height:fit-content;
+    color: red;
+}

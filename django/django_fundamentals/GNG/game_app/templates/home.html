@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'CSS\style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+    <h2>Welcome to the great number game!</h2>
+    <p>I am thinking of a number between 1 and 100</p>
+    <p>Take a guess!</p>
+    <h3 class={{request.session.color}}>{{request.session.guess}}</h3>
+    {% if request.session.color == "green" or  request.session.color == "blue" %} 
+    <form action="restart">
+        <input type="submit" value="Play again!">
+    </form>
+    {% endif %}
+    <form action="guess" method="post">
+        {% csrf_token %}
+        <input type='text' name="guess">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    <p>You made {{request.session.counter}} guesses!</p>
+    </div>
+</body>
+</html>
