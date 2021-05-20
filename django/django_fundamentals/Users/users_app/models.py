@@ -8,3 +8,7 @@ class Users(models.Model):
     age = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+def users_obj():
+    users = Users.objects.all()
+    return users

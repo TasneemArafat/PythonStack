@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'CSS\style.css' %}">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"> 
+    <title>Users Form</title>
+</head>
+<body>
+    <div class="cont">
+        <table class="table table-striped" >
+            <thead>
+                <td>ID</td>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+            </thead>
+            {% for i in all_users %}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.first_name}} {{i.last_name}}</td>
+                <td>{{i.email_address}}</td>
+                <td>{{i.age}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <hr>
+        <h3>Add a user</h3>
+        <form action="/user_info" method="post">
+            {% csrf_token %}
+            First Name:<input class="form-control" type="text" name="first_name">
+            Last Name:<input class="form-control" type="text" name="last_name">
+            <br>
+            Email:<input class="form-control" type="text" name="email">
+            Age:<input  class="form-control" type="text" name="age">
+            <br>
+            <input class="btn btn-primary" type="submit" value="Add">
+        </form>
+    </div>
+</body>
+</html>
