@@ -1,0 +1,28 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+
+main{
+    margin:0px auto;
+}
+
+.container{
+    display:flex;
+    width:600px;
+    height:100px;
+    text-align: center;
+}
+
+.container div{
+    border:1px solid black;
+    margin:10px;
+}
+
+.red{
+    color:red;
+}
+
+.green{
+    color:green;
+}
