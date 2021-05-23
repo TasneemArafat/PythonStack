@@ -30,6 +30,9 @@
     <hr>
     <h1>All the Dojos</h1>
     {% for i in all_dojos %}
+        <form action="/deletion" method="get">   
+            <button name="DeleteButton" value="{{ i.id }}">Delete</button>
+        </form> 
         <p>Ninjas at the {{i.name}} dojo</p>
         <ul>
         {% for ninjas in i.dojos.all %}

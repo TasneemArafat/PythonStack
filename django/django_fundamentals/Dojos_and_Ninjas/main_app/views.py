@@ -19,3 +19,7 @@ def createninja(request):
     if request.method == "POST":
         create_ninja(request.POST)
     return redirect('/')
+
+def delete(request):
+    delete_dojo(request.GET['DeleteButton'])
+    return redirect('/')

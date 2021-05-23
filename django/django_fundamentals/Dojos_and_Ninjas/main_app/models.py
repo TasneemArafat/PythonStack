@@ -27,3 +27,6 @@ def create_dojo(input):
 def create_ninja(input):
     new_ninja = Ninja.objects.create(dojo=Dojo.objects.get(name=input['dojo']),first_name=input['fname'],last_name=input['lname'])
     return new_ninja
+
+def delete_dojo(input):
+    Dojo.objects.filter(id = input).delete()
