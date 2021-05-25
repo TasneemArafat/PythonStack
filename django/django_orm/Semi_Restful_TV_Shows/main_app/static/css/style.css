@@ -1,0 +1,48 @@
+*{
+    margin:0px;
+    padding:0px
+}
+
+.container{
+    margin:20px;
+} 
+
+td{
+    text-align: center;
+}
+
+.container th{
+    text-align: center;
+}
+
+.new{
+    text-align: center;   
+}
+
+ul{
+    list-style-type: none;
+}
+
+li{
+    display: inline;
+    padding:0px 5px;
+    border-right:1px solid black;
+}
+li:last-child{
+    border-right:none;
+}
+
+.goback{
+    float:right;
+}
+
+.view{
+    margin:20px 40px;
+}
+
+.btn {
+    margin:0px 447.725px
+}
+.gotoshow {
+    margin:0px 445px
+}
