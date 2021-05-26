@@ -22,17 +22,17 @@
                 <th>Actions</th>
             </thead>
             <tbody>
-                {% for i in all_shows %}
+                {% for show in all_shows %}
                 <tr>
-                    <td><a href="shows/{{i.id}}">{{i.id}}</a></td>
-                    <td>{{i.title}}</td>
-                    <td>{{i.network}}</td>
-                    <td>{{i.release_date}}</td>
+                    <td><a href="shows/{{show.id}}">{{show.id}}</a></td>
+                    <td>{{show.title}}</td>
+                    <td>{{show.network}}</td>
+                    <td>{{show.release_date}}</td>
                     <td>
                         <ul>
-                            <li><a href="shows/{{i.id}}">Show</a></li>
-                            <li><a href="shows/{{i.id}}/edit">Edit</a></li>
-                            <li><a href="shows/{{i.id}}/destroy">Delete</a></li>
+                            <li><a href="shows/{{show.id}}">Show</a></li>
+                            <li><a href="shows/{{show.id}}/edit">Edit</a></li>
+                            <li><a href="shows/{{show.id}}/destroy">Delete</a></li>
                         </ul>
                     </td>
                 </tr>

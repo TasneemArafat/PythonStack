@@ -14,6 +14,13 @@
     <div class="view">
         <a class="goback" href='/shows'>Go Back</a>
         <h3>Add a New Show</h3>
+        {% if messages %}
+        <ul class="messages">    
+        {% for message in messages %}    
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+        {% endfor %}
+        </ul>
+        {% endif %}
         <form  class="form-control" action = "/shows/create" method="post">
             {% csrf_token %}
             Title:
