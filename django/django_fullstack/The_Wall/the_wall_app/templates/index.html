@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static%}
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Section 1 Home Page</title>
+</head>
+<body>
+    <main>
+        <div>
+            <h3>Registration</h3>
+            <form action="register" method="post">
+                {% csrf_token %}
+                <input class="form-control" type="text" name="fname" placeholder="First Name">
+                <br>
+                <input class="form-control" type="text" name="lname" placeholder="Last Name">
+                <br>
+                <input class="form-control" type="email" name="email" placeholder="Email">
+                <br>
+                <input class="form-control" type="password" name="passwd" placeholder="Password">
+                <br>
+                <input class="form-control" type="password" name="confpasswd" placeholder="Confirm Password">
+                <br>
+                <input class="btn btn-primary" type="submit" value="Register">
+            </form>
+        </div>
+        <div>
+            <h3>Log in</h3>
+            <form action="login" method="post">
+                {% csrf_token %}
+                <input class="form-control" type="email" name="email" placeholder="Email">
+                <br>
+                <input class="form-control" type="password" name="passwd" placeholder="Password">
+                <br>
+                <input class="btn btn-warning" type="submit" value="Login">
+            </form>
+            {% if messages %}
+            <ul class="messages">    
+                {% for message in messages %}    
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+    </main>
+</body>
+</html>
