@@ -46,14 +46,9 @@ def login(request):
         print("NO ERRORS")
         if request.method == "POST":
             Email = request.POST['email']
-            print(Email)
             Password = request.POST['passwd']
-            print(Password)
             user = models.get_user(Email)
-            print("THER IS A USER")
-            print(user)
             if user:
-                print("HI USER")
                 request.session['id'] = user.id
                 request.session['first_name'] = user.first_name
                 request.session['last_name'] = user.last_name
