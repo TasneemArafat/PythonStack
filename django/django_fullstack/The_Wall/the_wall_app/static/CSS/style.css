@@ -12,7 +12,11 @@ nav{
     border-radius: 10px;
 }
 
-nav h6, nav p{
+nav h6{
+    color:white;
+}
+
+nav p{
     color:white;
 }
 

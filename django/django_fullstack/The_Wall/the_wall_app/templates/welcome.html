@@ -29,7 +29,7 @@
         </form>
         <br>
         <br>
-            {% for message in all_messages %}
+            {% for message in all_messages reversed %}
             <p class="message name">{{message.user.first_name}} {{message.user.last_name}} - {{message.created_at.date}}</p>
             <p class="message">{{message.message}}</p>
             <br>
@@ -40,7 +40,7 @@
                 <input class="btn btn-danger" type="submit" value="Delete">
             </form>
             {% endif %}
-            {% for comment in all_comments %}
+            {% for comment in all_comments reversed %}
             {% if comment.message.id == message.id %}
             <p class="comment name">{{comment.user.first_name}} {{comment.user.last_name}} - {{comment.created_at.date}}</p>
             <p class="comment">{{comment.comment}}</p>
