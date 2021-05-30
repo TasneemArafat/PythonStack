@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static%}
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Book</title>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <h4>Welcome, {{request.session.first_name}}</h4>
+        <a href="/logout">Log Out</a>
+    </nav>
+    <div class="show_book">
+        <div>
+            <h1>{{this_book.title}}</h1>
+            <p>Added by: {{this_book.user_uploaded.first_name}} {{this_book.user_uploaded.last_name}}</p>
+            <p>Added on: {{this_book.created_at}}</p>
+            <p>Last updated on: {{this_book.updated_at}}</p>
+            {% if request.session.id == this_book.user_uploaded.id %}
+            <form class="update_delete" action="{{this_book.id}}/update" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="title" value="{{this_book.title}}">
+                Description: <textarea name="desc" cols="30" rows="10"></textarea>
+                <br>
+                <input class="btn btn-warning" name="update" type="submit" value="Update">
+                <a class="btn btn-danger" href="{{this_book.id}}/delete">Delete</a>
+            </form>
+            {% else %}
+            <p>Description: {{this_book.desc}}</p>
+            {% endif %}
+            <br>
+            {% if messages %}
+            <ul class="messages">    
+                {% for message in messages %}    
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <br>
+        </div>
+        <div>
+            <h2>Users Who Like This Book:</h2>
+            <ul>
+            {% for like in this_book.user_liked.all %}
+                <li>{{like.first_name}} {{like.last_name}}</li>
+            {% endfor %}
+            {% if book_liked_by %}
+                <a href="{{this_book.id}}/remove_from_fav">Un-favourite</a>
+            {% else %}
+                <a href="{{this_book.id}}/add_to_fav">Add to Favourites</a>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
